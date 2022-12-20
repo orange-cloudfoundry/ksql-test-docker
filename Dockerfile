@@ -19,7 +19,7 @@ RUN echo Installing ; \
   apk add --no-cache --virtual .dev_pkgs $BUILD_DEPS $BUILD_DEPS_EXTRA && \
   apk add --no-cache $RUN_DEPS $RUN_DEPS_EXTRA && \
   echo Building && \
-  cd /usr/src/kcat && \
+  cd kcat && \
   rm -rf tmp-bootstrap && \
   echo "Source versions:" && \
   grep ^github_download ./bootstrap.sh && \
@@ -27,7 +27,7 @@ RUN echo Installing ; \
   mv kcat /usr/bin/ && \
   echo Cleaning up && \
   cd / && \
-  rm -rf /usr/src/kcat && \
+  rm -rf kcat && \
   apk del .dev_pkgs && \
   rm -rf /var/cache/apk/*
 
