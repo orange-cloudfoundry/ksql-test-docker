@@ -7,7 +7,7 @@ RUN yum install -y jq
 
 #Equivalent of COPY . /usr/src/kcat on original kcat Dockerfile
 RUN curl -LO https://github.com/edenhill/kcat/archive/refs/tags/1.7.0.tar.gz; \
-    tar fxvz kcat-1.7.0; \
+    tar fxvz 1.7.0.tar.gz; \
     chmod 777 kcat-1.7.0; \
     mv kcat-1.7.0 kcat
 
