@@ -1,20 +1,9 @@
-FROM confluentinc/ksqldb-cli:0.28.2
+FROM edenhill/kcat:1.7.1
 
 USER root
 
-RUN yum install -y jq
+RUN apk add jq
 
-ADD confluent.repo .
-
-RUN dnf install -y 'dnf-command(copr)'; \
-    dnf update -y; \
-    dnf copr enable -y bvn13/kcat mageia-8-x86_64;  \
-    rpm --import https://packages.confluent.io/rpm/7.3/archive.key; \
-    mv confluent.repo /etc/yum.repos.d/confluent.repo; \
-    dnf update -y; \
-    dnf install librdkafka-devel; \
-    dnf update -y; \
-    dnf install -y kcat
 
 RUN kcat -V
 
